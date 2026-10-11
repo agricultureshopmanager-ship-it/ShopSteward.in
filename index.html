@@ -48,8 +48,39 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;b
 .hero-content{position:relative;z-index:4;width:100%;max-width:var(--max);margin:auto;padding:74px 24px 40px;display:flex;flex-direction:column;justify-content:center;pointer-events:auto}
 .eyebrow{display:flex;align-items:center;gap:10px;color:var(--acid);font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
 .eyebrow:before{content:"";width:32px;height:1px;background:var(--acid)}
+
+/* --- HERO TEXT ANIMATION --- */
 h1{font-size:clamp(52px,6.4vw,96px);line-height:.86;letter-spacing:-.07em;margin:22px 0 26px;max-width:780px;font-weight:950}
-h1 span{display:block;color:transparent;-webkit-text-stroke:1px rgba(238,244,238,.72)}
+h1 span.line {
+  display: block;
+  opacity: 0; /* Start invisible */
+  transform: translateY(30px); /* Start slightly lower */
+  animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+h1 .solid { color: #eef4ee; }
+h1 .outline { color: transparent; -webkit-text-stroke: 1px rgba(238,244,238,.72); }
+
+/* Stagger the animation for each line */
+h1 span.line:nth-child(1) { animation-delay: 0.3s; } /* Your Shop. */
+h1 span.line:nth-child(2) { animation-delay: 0.5s; } /* Your Rules. */
+h1 span.line:nth-child(3) { animation-delay: 0.7s; } /* Your Steward. */
+
+@keyframes slideUpFade {
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End at normal position */
+  }
+}
+
+/* Respect user's accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+  h1 span.line {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 .lead{max-width:590px;color:#a8b1ad;font-size:18px;line-height:1.65;margin:0}
 .actions{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
 .btn{padding:15px 20px;border:1px solid var(--line);font-weight:900;font-size:12px;letter-spacing:.04em;border-radius:3px;display:inline-flex;align-items:center;gap:10px;transition:.2s;background:transparent;color:#eef4ee}
@@ -324,7 +355,11 @@ h1 span{display:block;color:transparent;-webkit-text-stroke:1px rgba(238,244,238
   </div>
   <div class="hero-content reveal">
     <div class="eyebrow">CUSTOM SOFTWARE FOR REAL SHOPS</div>
-    <h1>Your Shop.<span>Your Rules.</span>Your Steward.</h1>
+    <h1>
+      <span class="line solid">Your Shop.</span>
+      <span class="line outline">Your Rules.</span>
+      <span class="line solid">Your Steward.</span>
+    </h1>
     <p class="lead">Custom-built inventory, billing and reports — running on your phone, in your language, priced for your business. Trusted like a steward, who never forgets a bill or loses a customer's dues.</p>
     <div class="actions">
       <a class="btn primary" href="#demo">SEE LIVE DEMO ↗</a>
