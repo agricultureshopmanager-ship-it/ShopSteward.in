@@ -36,7 +36,6 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;b
 .navcta:hover{border-color:rgba(200,255,61,.6)}
 .menu{display:none;background:none;border:0;color:#fff;font-size:26px;z-index:21;padding:6px;line-height:1}
 
-/* --- HERO --- */
 .hero{min-height:calc(100svh - 78px);width:100%;margin:0;padding:0;position:relative;display:flex;align-items:center;justify-content:center;z-index:1;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:1}
 .hero-img{
@@ -53,32 +52,18 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;b
 h1{font-size:clamp(52px,6.4vw,96px);line-height:.86;letter-spacing:-.07em;margin:22px 0 26px;max-width:780px;font-weight:950}
 h1 span.line {
   display: block;
-  opacity: 0; /* Start invisible */
-  transform: translateY(30px); /* Start slightly lower */
+  opacity: 0;
+  transform: translateY(30px);
   animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 h1 .solid { color: #eef4ee; }
 h1 .outline { color: transparent; -webkit-text-stroke: 1px rgba(238,244,238,.72); }
-
-/* Stagger the animation for each line */
-h1 span.line:nth-child(1) { animation-delay: 0.3s; } /* Your Shop. */
-h1 span.line:nth-child(2) { animation-delay: 0.5s; } /* Your Rules. */
-h1 span.line:nth-child(3) { animation-delay: 0.7s; } /* Your Steward. */
-
-@keyframes slideUpFade {
-  to {
-    opacity: 1;
-    transform: translateY(0); /* End at normal position */
-  }
-}
-
-/* Respect user's accessibility settings */
+h1 span.line:nth-child(1) { animation-delay: 0.3s; }
+h1 span.line:nth-child(2) { animation-delay: 0.5s; }
+h1 span.line:nth-child(3) { animation-delay: 0.7s; }
+@keyframes slideUpFade { to { opacity: 1; transform: translateY(0); } }
 @media (prefers-reduced-motion: reduce) {
-  h1 span.line {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
+  h1 span.line { animation: none !important; opacity: 1 !important; transform: none !important; }
 }
 
 .lead{max-width:590px;color:#a8b1ad;font-size:18px;line-height:1.65;margin:0}
@@ -179,6 +164,30 @@ h1 span.line:nth-child(3) { animation-delay: 0.7s; } /* Your Steward. */
 .btn-mail-outline{display:block;width:100%;text-align:center;padding:12px 18px;margin-top:10px;border:1.5px solid var(--line);border-radius:3px;font-family:inherit;font-size:11px;font-weight:900;letter-spacing:0.12em;color:#c9d1cc;text-decoration:none;transition:all 0.25s ease;background:transparent;cursor:pointer;text-transform:uppercase}
 .btn-mail-outline:hover{border-color:var(--acid);color:var(--acid);background:rgba(200,255,61,0.06);transform:translateY(-1px)}
 
+/* --- PRODUCTS & ADD-ONS --- */
+.domain-table{width:100%;border:1px solid var(--line);margin-bottom:12px}
+.domain-row{display:grid;grid-template-columns:2fr 1fr 1fr;border-bottom:1px solid var(--line)}
+.domain-row:last-child{border-bottom:none}
+.domain-row > div{padding:16px 20px;font-size:13px;color:#eef4ee}
+.domain-row.header{background:#0a0e10}
+.domain-row.header > div{font-size:11px;font-weight:700;color:var(--acid);letter-spacing:.12em;text-transform:uppercase}
+.domain-row .d-name{font-weight:600}
+.domain-row .d-name span{color:#8e9995;font-size:11px;font-weight:400;margin-left:6px}
+.domain-row .d-variable{color:var(--acid);font-weight:700}
+
+.addon-grid{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.addon{padding:36px 28px;border-right:1px solid var(--line);display:flex;flex-direction:column;position:relative}
+.addon:last-child{border-right:0}
+.addon h3{font-size:24px;margin:10px 0 6px;letter-spacing:-.02em}
+.addon .amt{font-size:42px;font-weight:950;letter-spacing:-.07em;margin:8px 0 4px}
+.addon .amt small{font-size:13px;font-weight:600;letter-spacing:0;color:#8e9995;margin-left:6px}
+.addon .sub{color:#7f8a85;font-size:12px;line-height:1.6;margin-bottom:16px}
+.addon ul{list-style:none;padding:0;margin:0 0 24px 0}
+.addon li{padding:8px 0;color:#b0b9b5;font-size:12px;border-bottom:1px dashed rgba(255,255,255,.08)}
+.addon li:before{content:"+";color:var(--acid);margin-right:8px}
+.addon .btn{margin-top:auto;justify-content:center}
+
+/* --- FAQ --- */
 .faq{border-top:1px solid var(--line)}
 .q{border-bottom:1px solid var(--line)}
 .q button{width:100%;background:none;border:0;color:#eef4ee;text-align:left;padding:23px 0;font-weight:800;font-size:16px;display:flex;justify-content:space-between;align-items:center;font-family:inherit}
@@ -187,6 +196,7 @@ h1 span.line:nth-child(3) { animation-delay: 0.7s; } /* Your Steward. */
 .answer{display:none;padding:0 60px 25px 0;color:#8f9a95;line-height:1.7;font-size:14px}
 .q.open .answer{display:block}
 
+/* --- CONTACT --- */
 .contact{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
 .contact h2{font-size:clamp(48px,7vw,92px);margin:0;line-height:.86;letter-spacing:-.07em}
 .contact h2 span{color:var(--acid)}
@@ -251,17 +261,8 @@ h1 span.line:nth-child(3) { animation-delay: 0.7s; } /* Your Steward. */
   .demo-info{border-right:0;border-bottom:1px solid var(--line);padding:26px 20px}
   .demo-screen{display:none}
   
-  /* Mobile Demo CTA */
-  .mobile-demo-cta {
-    display: block;
-    padding: 20px;
-    text-align: center;
-  }
-  .mobile-demo-cta .btn {
-    width: 100%;
-    justify-content: center;
-    padding: 16px;
-  }
+  .mobile-demo-cta { display: block; padding: 20px; text-align: center; }
+  .mobile-demo-cta .btn { width: 100%; justify-content: center; padding: 16px; }
   
   .feature{grid-template-columns:42px 1fr;gap:12px}
   .feature p{grid-column:2}
@@ -275,6 +276,16 @@ h1 span.line:nth-child(3) { animation-delay: 0.7s; } /* Your Steward. */
   .cursor-light{display:none}
   .wa-float{width:54px;height:54px;right:16px;bottom:16px}
   .wa-float svg{width:26px;height:26px}
+
+  /* Mobile Domains Table */
+  .domain-row{grid-template-columns:1fr 1fr}
+  .domain-row > div:first-child{grid-column:1 / -1;border-bottom:1px dashed var(--line);}
+  .domain-row.header{display:none}
+
+  /* Mobile Add-ons */
+  .addon-grid{grid-template-columns:1fr}
+  .addon{border-right:0;border-bottom:1px solid var(--line)}
+  .addon:last-child{border-bottom:0}
 }
 @media(max-width:430px){
   .hero h1{font-size:clamp(42px,11.5vw,56px)}
@@ -304,6 +315,8 @@ h1 span.line:nth-child(3) { animation-delay: 0.7s; } /* Your Steward. */
   .testi-quote{font-size:clamp(28px,3vw,42px);}
   .price{padding:50px 40px;}
   .price .amt{font-size:60px;}
+  .addon{padding:50px 40px;}
+  .addon .amt{font-size:50px;}
   .demo-wrap{grid-template-columns:340px 1fr;min-height:750px;}
   .demo-info{padding:40px;}
   .demo-screen iframe{min-height:750px;}
@@ -339,6 +352,7 @@ h1 span.line:nth-child(3) { animation-delay: 0.7s; } /* Your Steward. */
     <a href="#demo">Live Demo</a>
     <a href="#features">Features</a>
     <a href="#pricing">Pricing</a>
+    <a href="#products">Products</a>
     <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -456,7 +470,6 @@ h1 span.line:nth-child(3) { animation-delay: 0.7s; } /* Your Steward. */
     <div class="demo-screen">
       <iframe loading="lazy" src="https://agricultureshopmanager-ship-it.github.io/AI-added-Agri-Web/" title="Live demo"></iframe>
     </div>
-    <!-- Mobile-only CTA to open the live demo in a new tab -->
     <div class="mobile-demo-cta">
       <a class="btn primary" href="https://agricultureshopmanager-ship-it.github.io/AI-added-Agri-Web/" target="_blank" rel="noopener">OPEN LIVE DEMO ↗</a>
     </div>
@@ -475,7 +488,7 @@ h1 span.line:nth-child(3) { animation-delay: 0.7s; } /* Your Steward. */
     <div class="feature"><div class="feature-num">07</div><h3>Auto Backup Every 24 Hours</h3><p>Your data exports automatically to Excel/JSON. Manual backup button too. Your business data, in your hands.</p></div>
     <div class="feature"><div class="feature-num">08</div><h3>Works on Any Phone</h3><p>No app store. No install. Open it in Chrome or Safari on your phone and it just works.</p></div>
     <div class="feature"><div class="feature-num">09</div><h3>Custom Units &amp; Categories</h3><p>Quintals, dozens, litres, bags, boxes. Your units, your categories, your business logic.</p></div>
-    <div class="feature"><div class="feature-num">10</div><h3>AI Agent</h3><p>Ask questions in plain language. "What sold most this week?" "Which items are about to expire?" The AI  answers from your own shop data.</p><div class="tag">NEW</div></div>
+    <div class="feature"><div class="feature-num">10</div><h3>AI Agent</h3><p>Ask questions in plain language. "What sold most this week?" "Which items are about to expire?" The AI answers from your own shop data.</p><div class="tag">NEW</div></div>
   </div>
 </section>
 
@@ -489,6 +502,7 @@ h1 span.line:nth-child(3) { animation-delay: 0.7s; } /* Your Steward. */
   </div>
 </section>
 
+<!-- ================= PRICING ================= -->
 <section class="section reveal" id="pricing">
   <div class="section-head">
     <div class="section-no">05 / PRICING</div>
@@ -506,7 +520,7 @@ h1 span.line:nth-child(3) { animation-delay: 0.7s; } /* Your Steward. */
       <div class="section-no">TIER_01 // LIMITED OFFER</div>
       <h3>Essentials, done right.</h3>
       <div class="price-old">₹4,899</div>
-      <div class="amt">₹<span class="spin-target" data-target="1999" style="--reel-cell:55px;">1,999</span></div>
+      <div class="amt">₹<span class="spin-target" data-target="2999" style="--reel-cell:55px;">2,999</span></div>
       <div class="sub">first year · setup included<br>then <b style="color:#c8ff3d">₹599/year</b> from year 2</div>
 
       <div class="price-meta">
@@ -530,8 +544,8 @@ h1 span.line:nth-child(3) { animation-delay: 0.7s; } /* Your Steward. */
         <li class="not">Custom Bill Design</li>
       </ul>
 
-      <a class="btn secondary" href="https://wa.me/918637560557?text=Hi%2C%20I%20want%20the%20BASE%20ShopSteward%20plan%20at%20%E2%82%B91%2C999%20(first%20year)%20with%20%E2%82%B9599%2Fyr%20renewal" target="_blank" rel="noopener">DEPLOY BASE — ₹1,999 →</a>
-      <a class="btn-mail-outline" href="mailto:shopsteward.in@gmail.com?subject=Base%20Plan%20Inquiry%20(%E2%82%B91%2C999)&body=Hi%20ShopSteward%2C%0A%0AI%20am%20interested%20in%20the%20BASE%20plan%20(%E2%82%B91%2C999%20first%20year%2C%20then%20%E2%82%B9599%2Fyr).%20Please%20share%20details.">✉ Email Inquiry</a>
+      <a class="btn secondary" href="https://wa.me/918637560557?text=Hi%2C%20I%20want%20the%20BASE%20ShopSteward%20plan%20at%20%E2%82%B92%2C999%20(first%20year)%20with%20%E2%82%B9599%2Fyr%20renewal" target="_blank" rel="noopener">DEPLOY BASE — ₹2,999 →</a>
+      <a class="btn-mail-outline" href="mailto:shopsteward.in@gmail.com?subject=Base%20Plan%20Inquiry%20(%E2%82%B92%2C999)&body=Hi%20ShopSteward%2C%0A%0AI%20am%20interested%20in%20the%20BASE%20plan%20(%E2%82%B92%2C999%20first%20year%2C%20then%20%E2%82%B9599%2Fyr).%20Please%20share%20details.">✉ Email Inquiry</a>
     </article>
 
     <!-- TIER 02: CUSTOM (Most Popular) -->
@@ -540,8 +554,8 @@ h1 span.line:nth-child(3) { animation-delay: 0.7s; } /* Your Steward. */
       <div class="section-no">CUSTOM</div>
       <h3>Built around your shop.</h3>
       <div class="price-old">₹6,899</div>
-      <div class="amt">₹<span class="spin-target" data-target="3599" style="--reel-cell:55px;">3,599</span></div>
-      <div class="sub">first year · setup included<br>then <b style="color:#c8ff3d">₹799/year</b> from year 2</div>
+      <div class="amt">₹<span class="spin-target" data-target="3999" style="--reel-cell:55px;">3,999</span></div>
+      <div class="sub">first year · setup included<br>then <b style="color:#c8ff3d">₹599/year</b> from year 2</div>
 
       <div class="price-meta">
         <div><span>Best for</span><b>Most shops</b></div>
@@ -561,17 +575,17 @@ h1 span.line:nth-child(3) { animation-delay: 0.7s; } /* Your Steward. */
         <li>WhatsApp Support (10 AM – 6 PM)</li>
       </ul>
 
-      <a class="btn primary" href="https://wa.me/918637560557?text=Hi%2C%20I%20want%20the%20CUSTOM%20ShopSteward%20plan%20at%20%E2%82%B93%2C599%20(first%20year)%20with%20%E2%82%B9799%2Fyr%20renewal" target="_blank" rel="noopener">GET CUSTOM — ₹3,599 →</a>
-      <a class="btn-mail-outline" href="mailto:shopsteward.in@gmail.com?subject=Custom%20Plan%20Inquiry%20(%E2%82%B93%2C599)&body=Hi%20ShopSteward%2C%0A%0AI%20am%20interested%20in%20the%20CUSTOM%20plan%20(%E2%82%B93%2C599%20first%20year%2C%20then%20%E2%82%B9799%2Fyr).%20Please%20share%20details.">✉ Email Inquiry</a>
+      <a class="btn primary" href="https://wa.me/918637560557?text=Hi%2C%20I%20want%20the%20CUSTOM%20ShopSteward%20plan%20at%20%E2%82%B93%2C999%20(first%20year)%20with%20%E2%82%B9599%2Fyr%20renewal" target="_blank" rel="noopener">GET CUSTOM — ₹3,999 →</a>
+      <a class="btn-mail-outline" href="mailto:shopsteward.in@gmail.com?subject=Custom%20Plan%20Inquiry%20(%E2%82%B93%2C999)&body=Hi%20ShopSteward%2C%0A%0AI%20am%20interested%20in%20the%20CUSTOM%20plan%20(%E2%82%B93%2C999%20first%20year%2C%20then%20%E2%82%B9599%2Fyr).%20Please%20share%20details.">✉ Email Inquiry</a>
     </article>
 
     <!-- TIER 03: AI ADVANCED -->
     <article class="price">
       <div class="section-no">TIER_03 // AI ADVANCED</div>
       <h3>Full Custom.</h3>
-      <div class="price-old">₹9,899</div>
-      <div class="amt">₹<span class="spin-target" data-target="7999" style="--reel-cell:55px;">7,999</span></div>
-      <div class="sub">first year · setup included<br>then <b style="color:#c8ff3d">₹2,599/year</b> from year 2</div>
+      <div class="price-old">₹14,999</div>
+      <div class="amt">₹<span class="spin-target" data-target="9999" style="--reel-cell:55px;">9,999</span></div>
+      <div class="sub">first year · setup included<br>then <b style="color:#c8ff3d">₹599/year</b> from year 2</div>
 
       <div class="price-meta">
         <div><span>Best for</span><b>Multi-branch shops</b></div>
@@ -591,15 +605,95 @@ h1 span.line:nth-child(3) { animation-delay: 0.7s; } /* Your Steward. */
         <li>Staff Video Training + Custom Domain</li>
       </ul>
 
-      <a class="btn secondary" href="https://wa.me/918637560557?text=Hi%2C%20I%20want%20the%20AI%20ADVANCED%20ShopSteward%20plan%20at%20%E2%82%B97%2C999%20(first%20year)%20with%20%E2%82%B92%2C599%2Fyr%20renewal" target="_blank" rel="noopener">TALK TO ARCHITECT — ₹7,999 →</a>
-      <a class="btn-mail-outline" href="mailto:shopsteward.in@gmail.com?subject=AI%20Advanced%20Plan%20Inquiry%20(%E2%82%B97%2C999)&body=Hi%20ShopSteward%2C%0A%0AI%20am%20interested%20in%20the%20AI%20ADVANCED%20plan%20(%E2%82%B97%2C999%20first%20year%2C%20then%20%E2%82%B92%2C599%2Fyr).%20Please%20share%20details.">✉ Email Inquiry</a>
+      <a class="btn secondary" href="https://wa.me/918637560557?text=Hi%2C%20I%20want%20the%20AI%20ADVANCED%20ShopSteward%20plan%20at%20%E2%82%B99%2C999%20(first%20year)%20with%20%E2%82%B9599%2Fyr%20renewal" target="_blank" rel="noopener">TALK TO ARCHITECT — ₹9,999 →</a>
+      <a class="btn-mail-outline" href="mailto:shopsteward.in@gmail.com?subject=AI%20Advanced%20Plan%20Inquiry%20(%E2%82%B99%2C999)&body=Hi%20ShopSteward%2C%0A%0AI%20am%20interested%20in%20the%20AI%20ADVANCED%20plan%20(%E2%82%B99%2C999%20first%20year%2C%20then%20%E2%82%B9599%2Fyr).%20Please%20share%20details.">✉ Email Inquiry</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- ================= PRODUCTS & ADD-ONS ================= -->
+<section class="section reveal" id="products">
+  <div class="section-head">
+    <div class="section-no">06 / PRODUCTS &amp; ADD-ONS</div>
+    <h2>Domains &amp; <em>extra services.</em></h2>
+  </div>
+  <p class="copy" style="max-width:700px;margin-bottom:42px">
+    Optional products you can add to any ShopSteward plan. Domains give you a professional web address, and our add-ons make your shop run even smoother.
+  </p>
+
+  <!-- === DOMAINS === -->
+  <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:#eef4ee;margin:0 0 20px 0;letter-spacing:-.02em;">🌐 Domains</h3>
+  <div class="domain-table">
+    <div class="domain-row header">
+      <div>Domain Type</div>
+      <div>First Time Setup</div>
+      <div>Annual Renewal</div>
+    </div>
+    <div class="domain-row">
+      <div class="d-name">.in Domain <span>(yourshop.in)</span></div>
+      <div>₹1,299</div>
+      <div>₹999/year</div>
+    </div>
+    <div class="domain-row">
+      <div class="d-name">.com Domain <span>(yourshop.com)</span></div>
+      <div>₹1,799</div>
+      <div>₹1,599/year</div>
+    </div>
+    <div class="domain-row">
+      <div class="d-name">Subdomain <span>(yourshop.shopsteward.in)</span></div>
+      <div>₹699</div>
+      <div>₹299/year</div>
+    </div>
+    <div class="domain-row">
+      <div class="d-name">Custom Domain <span>(any TLD)</span></div>
+      <div class="d-variable">Variable</div>
+      <div class="d-variable">Variable</div>
+    </div>
+  </div>
+  <p class="copy" style="font-size:12px;color:#8f9a95;margin:0 0 50px 0;">
+    * Or market price + ₹200 handling fee, whichever is applicable. Custom domain pricing depends on the TLD and availability. Contact us for a quote.
+  </p>
+
+  <!-- === ADD-ON SERVICES === -->
+  <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:#eef4ee;margin:0 0 20px 0;letter-spacing:-.02em;">✨ Add-on Services</h3>
+  <div class="addon-grid">
+
+    <!-- ADD-ON 1: WhatsApp Integration -->
+    <article class="addon">
+      <div class="section-no">ADD-ON 01</div>
+      <h3>WhatsApp Business Integration</h3>
+      <div class="amt">₹1,499 <small>one-time</small></div>
+      <div class="sub">Send bills &amp; udhaar reminders directly to customer WhatsApp.</div>
+      <ul>
+        <li>Auto-send bill to customer's WhatsApp</li>
+        <li>Automatic udhaar payment reminders</li>
+        <li>Share reports with staff or partners</li>
+        <li>Works with your existing WhatsApp Business number</li>
+      </ul>
+      <a class="btn secondary" href="https://wa.me/918637560557?text=Hi%2C%20I%20want%20the%20WhatsApp%20Business%20Integration%20add-on%20(%E2%82%B91%2C499)." target="_blank" rel="noopener">ADD TO MY PLAN — ₹1,499 →</a>
+    </article>
+
+    <!-- ADD-ON 2: Data Migration -->
+    <article class="addon">
+      <div class="section-no">ADD-ON 02</div>
+      <h3>Data Migration &amp; Setup</h3>
+      <div class="amt">₹999 <small>one-time</small></div>
+      <div class="sub">We import your existing inventory from Excel, Tally, or Vyapar.</div>
+      <ul>
+        <li>Import existing products &amp; stock</li>
+        <li>Import customer list with udhaar balance</li>
+        <li>Set up your categories and units for you</li>
+        <li>Verify everything works before handover</li>
+      </ul>
+      <a class="btn secondary" href="https://wa.me/918637560557?text=Hi%2C%20I%20want%20the%20Data%20Migration%20add-on%20(%E2%82%B9999)." target="_blank" rel="noopener">ADD TO MY PLAN — ₹999 →</a>
     </article>
 
   </div>
 </section>
 
 <section class="section reveal" id="faq">
-  <div class="section-head"><div class="section-no">06 / FAQ</div><h2>Questions shop owners <em>ask me.</em></h2></div>
+  <div class="section-head"><div class="section-no">07 / FAQ</div><h2>Questions shop owners <em>ask me.</em></h2></div>
   <div class="faq">
     <div class="q"><button>Do I need to buy new hardware or a printer?</button><div class="answer">No. It runs in the browser on the computer or phone you already own. It prints on standard thermal and A4 printers — the same ones your shop already uses.</div></div>
     <div class="q"><button>Can I use it on my mobile phone?</button><div class="answer">Yes. Open the link in Chrome or Safari. Same data, same features, responsive layout. No app store, no installation, no phone storage used.</div></div>
@@ -615,7 +709,7 @@ h1 span.line:nth-child(3) { animation-delay: 0.7s; } /* Your Steward. */
 <section class="section reveal" id="contact">
   <div class="contact">
     <div>
-      <div class="section-no">07 / CONTACT</div>
+      <div class="section-no">08 / CONTACT</div>
       <h2>Let's build<br><span>your</span> steward.</h2>
       <p class="copy" style="max-width:500px;margin-top:28px">Tell me what your shop needs. I'll reply within a day — usually much faster.</p>
     </div>
